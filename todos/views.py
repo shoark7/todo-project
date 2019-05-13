@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .models import TodoList
 
-# Create your views here.
+
+def todos_list(request):
+    lists = TodoList.objects.all()
+    context = {'lists': lists}
+
+    return render(request, 'pages/todos-list.html', context)

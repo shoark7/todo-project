@@ -15,8 +15,12 @@ class TodoList(models.Model):
     expired_date = models.DateField(default=LONG_FUTURE)
     is_solved = models.BooleanField(default=False)
 
+    def __repr__(self):
+        return self.__str__()
+
     def __str__(self):
         return self.title[:10] + ': '+ self.content[:10]
 
-    def __repr__(self):
-        return self.__str__()
+    @property
+    def is_expired(self):
+        return self.expired_date < date.today()
