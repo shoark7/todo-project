@@ -9,7 +9,8 @@ class TodoList(models.Model):
     content = models.TextField()
     importance = models.CharField(
         max_length=1,
-        choices=tuple((str(n), n) for n in range(1, 7+1))
+        choices=tuple((str(n), n) for n in range(1, 7+1)),
+        default='4',
     )
     created_date = models.DateField(auto_now_add=True)
     expired_date = models.DateField(default=LONG_FUTURE)
