@@ -1,0 +1,36 @@
+.todo-item {
+	margin-bottom: 20px;
+}
+div.card-header {
+	padding: 0 0;
+}
+
+div.card-title {
+	background-color: #DDD;
+	margin: 0;
+	padding: .5rem 0;	
+	cursor: pointer;
+	font-weight: 500;
+}
+
+.card-body {
+	white-space: pre-line;
+	width: 100%;
+}
+
+div.footer {
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+		display: flex;
+}
+
+div.footer a {
+	/*width: 50%;*/
+	flex: 1;
+}
+
+div.footer div {
+	width: 100%;
+}

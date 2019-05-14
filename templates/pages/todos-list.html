@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 
+
+{% comment %}
+This template uses a variable named 'list' referring to a single todo list 
+{% endcomment %}
+
 {% block content %}
-  {% for list in lists %}
-    <p>{{ list.title }}</p>
-    <p>{{ list.content }}</p>
-  {% endfor %}
+  <div class="container">
+    {% for list in lists %}
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-mid-8 col-sm-10">
+        {% include 'parts/todo-item.html' %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 {% endblock %}
