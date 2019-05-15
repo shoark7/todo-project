@@ -15,4 +15,8 @@ This template uses a variable named 'list' referring to a single todo list
     </div>
     {% endfor %}
   </div>
+  <a href="{% url 'todos-new' %}">
+    <i id="plus-icon" class="fas fa-plus-circle"></i></div>
+  </a>
+  
 {% endblock %}

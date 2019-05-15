@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-lg-8 col-mid-8 col-sm-10">
+
+        <form action="{% url 'todos-update' pk %}" method="POST" class="todo-form container">
+          {% csrf_token %}
+          <h2 class="text-center">수정하기</h2>
+          <hr>
+          
+          {{ form.non_field_errors }}
+          <div class="row"> {{ form.title.errors }}</div>
+          <div class="row">
+            <div class="col-3 input-label">{{ form.title.label_tag}}</div>
+            <div class="col-9 input-widget">{{ form.title }}</div>
+          </div>
+
+          <div class="row"> {{ form.content.errors }}</div>
+          <div class="row">
+            <div class="col-3 input-label">{{ form.content.label_tag}}</div>
+            <div class="col-9 input-widget">{{ form.content }}</div>
+          </div>
+
+          <div class="row"> {{ form.importance.errors }}</div>
+          <div class="row">
+            <div class="col-3 input-label">{{ form.importance.label_tag}}</div>
+            <div class="col-9 input-widget">{{ form.importance }}</div>
+          </div>
+
+          <div class="row"> {{ form.expired_date.errors }}</div>
+          <div class="row">
+            <div class="col-3 input-label">{{ form.expired_date.label_tag}}</div>
+            <div class="col-9 input-widget">{{ form.expired_date }}</div>
+          </div>
+
+          <input style="display: block; width: 200px; margin: 0 auto;" type="submit" value="수정"></input>
+        </form>
+
+      </div>
+  </div>
+</div>
+{% endblock %}

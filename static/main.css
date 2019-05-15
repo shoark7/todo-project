@@ -34,3 +34,40 @@ div.footer a {
 div.footer div {
 	width: 100%;
 }
+
+.todo-form {
+	background-color: lightblue;	
+	border-radius: 5px;
+	padding: 1rem;
+}
+
+.todo-form .row {
+	margin: 1rem;
+}
+
+.input-label {
+	padding-left: 10px;
+	font-weight: 500;	
+}
+
+.input-widget {
+	
+}
+
+
+.errorlist {
+  color: red;
+}
+
+
+#plus-icon {
+  font-size: 4rem;
+  position: absolute;
+  color: black;
+  bottom: 5%;
+  right: 5%;
+}
+
+div.card-body {
+  padding-top: 0;
+}
