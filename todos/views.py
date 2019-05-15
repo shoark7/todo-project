@@ -2,7 +2,6 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic.detail import SingleObjectMixin
 
 from .forms import TodoListForm
 from .models import TodoList
@@ -10,8 +9,16 @@ from .models import TodoList
 
 @csrf_exempt
 def todos_list(request):
-    lists = TodoList.objects.all()
-    context = {'lists': lists}
+    if request.GET:
+        criteria = request.GET.get('criteria')
+        ordering = request.GET.get('ordering')
+        sign = '' if ordering == 'ascending' else '-'
+        lists = TodoList.objects.order_by(sign + criteria)
+        context = {'lists': lists, 'criteria': criteria, 'ordering': ordering}
+    else:
+        lists = TodoList.objects.all()
+        context = {'lists': lists}
+
     return render(request, 'pages/todos-list.html', context)
 
 

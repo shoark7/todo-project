@@ -24,3 +24,6 @@ class TodoList(models.Model):
     @property
     def is_expired(self):
         return self.expired_date < date.today()
+
+    class Meta:
+        ordering = ['created_date']

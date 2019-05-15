@@ -71,3 +71,16 @@ div.footer div {
 div.card-body {
   padding-top: 0;
 }
+
+
+
+#ordering-form {
+
+}
+
+#ordering-form * {
+	margin-left: .5rem;
+	height: 30px;
+	font-weight: 500;
+	border-radius: 3px;
+}
