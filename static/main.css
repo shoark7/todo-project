@@ -5,8 +5,13 @@ div.card-header {
 	padding: 0 0;
 }
 
+div.card-header button {
+  color: #eee;
+  background-color: #ddd;
+}
+
 div.card-title {
-	background-color: #DDD;
+	background-color: beige;
 	margin: 0;
 	padding: .5rem 0;	
 	cursor: pointer;
