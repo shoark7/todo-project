@@ -8,22 +8,23 @@ from .models import TodoList
 from helpers.helper import get_next_location
 
 
-@csrf_exempt
 def todos_list(request):
     if request.GET:
         criteria = request.GET.get('criteria')
         ordering = request.GET.get('ordering')
         sign = '' if ordering == 'ascending' else '-'
         lists = TodoList.objects.order_by(sign + criteria)
-        context = {'lists': lists, 'criteria': criteria, 'ordering': ordering}
+        all_clear = all(not l.is_expired for l in lists)
+        context = {'lists': lists, 'criteria': criteria,
+                   'ordering': ordering, 'all_clear': all_clear}
     else:
         lists = TodoList.objects.all()
-        context = {'lists': lists}
+        all_clear = all(not l.is_expired for l in lists)
+        context = {'lists': lists, 'all_clear': all_clear}
 
     return render(request, 'pages/todos-list.html', context)
 
 
-@csrf_exempt
 def todos_new(request):
     if request.method == 'GET':
         form = TodoListForm()
@@ -39,7 +40,6 @@ def todos_new(request):
             return render(request, 'pages/todo-new.html', context)
 
 
-@csrf_exempt
 def todos_update(request, pk):
     todo = get_object_or_404(TodoList, pk=pk)
 
@@ -52,16 +52,13 @@ def todos_update(request, pk):
         context = {'form': form, 'pk': pk}
         if form.is_valid():
             form.save()
-            next_loc = get_next_location(request)
             return redirect(reverse('todos-list'))
         return render(request, 'pages/todo-update.html', context)
 
 
-@csrf_exempt
 def todos_delete(request, pk):
     todo = get_object_or_404(TodoList, pk=pk)
     todo.delete()
-
     next_loc = get_next_location(request)
     return redirect(reverse('todos-list') + next_loc)
 
@@ -71,6 +68,5 @@ def solve_toggle(request, pk):
     todo = get_object_or_404(TodoList, pk=pk)
     todo.is_solved ^= True
     todo.save()
-
     return JsonResponse({'pk': todo.id, 'is_solved': todo.is_solved,
                          'is_expired': todo.is_expired})

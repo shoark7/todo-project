@@ -72,6 +72,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Template and static configs
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

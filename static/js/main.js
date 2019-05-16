@@ -2,7 +2,7 @@ $('.solve-button').click(function() {
   let todo_id = $(this).attr("value");
   let button = $(this);
   $.ajax({
-      url: todo_id + '/solve_toggle',
+      url: '/todos/' + todo_id + '/solve_toggle',
       type: "POST",
       success: function (result) {
         let card = $('#card' + result.pk);
