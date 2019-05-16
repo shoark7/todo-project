@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% comment %}
@@ -21,5 +22,7 @@ This template uses a variable named 'list' referring to a single todo list
   <a href="{% url 'todos-new' %}">
     <i id="plus-icon" class="fas fa-plus-circle"></i></div>
   </a>
+  
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
   
 {% endblock %}

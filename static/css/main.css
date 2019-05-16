@@ -6,12 +6,9 @@ div.card-header {
 }
 
 div.card-header button {
-  color: #eee;
-  background-color: #ddd;
 }
 
 div.card-title {
-	background-color: beige;
 	margin: 0;
 	padding: .5rem 0;	
 	cursor: pointer;
@@ -69,8 +66,8 @@ div.footer div {
   font-size: 4rem;
   position: absolute;
   color: black;
-  bottom: 5%;
-  right: 5%;
+	bottom: 5%;
+	right: 5%;
 }
 
 div.card-body {
@@ -89,3 +86,70 @@ div.card-body {
 	font-weight: 500;
 	border-radius: 3px;
 }
+
+
+
+
+
+div.todo-expired {
+	color: red;
+	background-color: #f2bcc9;
+}
+div.todo-expired .card-title {
+	background-color: #f291ad;
+	color: black;
+}
+
+div.todo-expired .solve-button {
+	color: pink;
+  background-color: #ef7c98;
+}
+div.todo-expired .solve-button:hover {
+	color: red;
+}
+
+
+
+
+
+
+div.todo-solved {
+	background-color: #dff2de;
+	text-decoration: line-through;
+}
+div.todo-solved .card-title {
+	background-color: #aee89b;
+}
+div.todo-solved .solve-button {
+	background-color: #ccedc2;
+  color: white;
+}
+div.todo-solved .solve-button:hover {
+	color: green;
+}
+
+
+
+
+
+
+div.todo-not-solved {
+	background-color: #f1f2ed;
+}
+div.todo-not-solved .card-title {
+	background-color: #ecefdc;
+	color: black;
+}
+div.todo-not-solved .solve-button {
+  color: #eee;
+  background-color: #ddd;
+}
+div.todo-not-solved .solve-button:hover {
+	color: black;
+}
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
@@ -60,3 +60,13 @@ def todos_delete(request, pk):
     todo = get_object_or_404(TodoList, pk=pk)
     todo.delete()
     return redirect('todos-list')
+
+
+@csrf_exempt
+def solve_toggle(request, pk):
+    todo = get_object_or_404(TodoList, pk=pk)
+    todo.is_solved ^= True
+    todo.save()
+
+    return JsonResponse({'pk': todo.id, 'is_solved': todo.is_solved,
+                         'is_expired': todo.is_expired})

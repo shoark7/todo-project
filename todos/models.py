@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 from app.helper import get_ndays_later
 
@@ -15,6 +16,10 @@ class TodoList(models.Model):
     expired_date = models.DateField("기한", default=get_ndays_later)
     is_solved = models.BooleanField("완료 여부", default=False)
 
+
+    class Meta:
+        ordering = ['created_date']
+
     def __repr__(self):
         return self.__str__()
 
@@ -25,5 +30,3 @@ class TodoList(models.Model):
     def is_expired(self):
         return self.expired_date < date.today()
 
-    class Meta:
-        ordering = ['created_date']
