@@ -1,6 +1,6 @@
 from datetime import date
 from django.db import models
-from app.helper import get_ndays_later
+from helpers.helper import get_ndays_later
 
 
 class TodoList(models.Model):

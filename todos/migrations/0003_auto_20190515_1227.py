@@ -3,7 +3,7 @@
 from django.db import migrations, models
 
 import todos.models
-from app.helper import get_ndays_later
+from helpers.helper import get_ndays_later
 
 
 class Migration(migrations.Migration):

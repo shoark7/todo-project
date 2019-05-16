@@ -1,6 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block content %}
-	<h1>성환쿤의 페이지에 오신 것을 환영한다능, 방사능</h1>
+	<div class="container">
+    
+    <div class="row justify-content-center">
+      <div class="col-md-4 col-lg-4">
+        <a href="/todos?criteria=created_date&ordering=ascending">
+          <img style="max-width: 100%; max-height: 100%;" src="{% static 'img/resume-logo.jpg' %}"
+          alt="이력서 사진">
+        </a>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <h2 class="text-center">박성환(Parkito)</h1>
+        <p>파이썬, 네트워크, 알고리즘, 시스템화에 대한 관심이 많은 사람입니다.</p>
+        <p>제 개인 <a target="_blank" href="https://shoark7.github.io/">블로그</a>입니다. 단순히
+        포르폴리오 용이 아닌 지식 나눔용으로 나름 컨텐츠에 대한 자부심이 강합니다. 방문해주세요. </p>
+        <p>여기까지 오느라 고생하셨습니다. 사진을 클릭하셔서 살펴보시죠 :)</p>
+      </div>
+    </div>
+  </div>
+	
 {% endblock %}
