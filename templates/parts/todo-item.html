@@ -29,7 +29,7 @@ This template uses a variable named 'list' referring to a single todo list
       </div>
 
 			<div class="card-footer">
-        <a href="{% url 'todos-update' list.pk %}?next={{ request.get_full_path|urlencode }}"> <div class="btn btn-info ml-auto">정보 수정</div> </a>
+        <a href="{% url 'todos-update' list.pk %}"> <div class="btn btn-info ml-auto">정보 수정</div> </a>
         <a href="{% url 'todos-delete' list.pk %}?next={{ request.get_full_path|urlencode }}"> <div class="btn btn-danger ml-auto">일정 삭제</div> </a>
 			</div>
 			
