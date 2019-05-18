@@ -5,7 +5,7 @@ from decouple import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = config('DEBUG', default=True, cast=bool)
-SECRET_KEY = config('SECRET_KEY') if not DEBUG else os.environ['SECRET_KEY']
+SECRET_KEY = config('SECRET_KEY', default=os.environ['SECRET_KEY'], cast=str)
 
 MAIN_HOST = '127.0.0.1' if DEBUG else '.herokuapp.com'
 
@@ -39,6 +39,7 @@ ROOT_URLCONF = 'todo_configs.urls'
 WSGI_APPLICATION = 'todo_configs.wsgi.application'
 
 
+# Database settings
 if DEBUG:
     DATABASES = {
         'default': {
