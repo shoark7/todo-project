@@ -1,0 +1,38 @@
+{% comment %}
+This template uses a variable named 'list' referring to a single todo list 
+{% endcomment %}
+
+
+<div class="todo-item">
+	<div id="card{{ list.pk }}" class="card container
+		{% if list.is_solved %}
+			todo-solved
+		{% elif list.is_expired %}
+			todo-expired
+		{% else %}
+			todo-not-solved
+		{% endif %}
+		">
+    <div class="card-header row" id="heading{{ list.pk }}">
+      <div class="card-title btn col-10" data-toggle="collapse" data-target="#collapse{{ list.pk }}" aria-expanded="true" aria-controls="collapse{{ list.pk }}">
+        {{ list.title }}
+      </div>
+      <button type="button" class="btn col-2 solve-button" value={{ list.pk }}>
+        <i class="fas {% if list.is_solved %} fa-backspace {% else %} fa-check {% endif %}"></i>
+      </button>
+    </div>
+
+		<div id="collapse{{ list.pk }}" class="row collapse" aria-labelledby="heading{{ list.pk }}">
+      <div class="card-body">
+        <p class="text-right">기한: {{ list.expired_date }}</p>
+				{{ list.content }}
+      </div>
+
+			<div class="card-footer">
+        <a href="{% url 'todos-update' list.pk %}?next={{ request.get_full_path|urlencode }}"> <div class="btn btn-info ml-auto">정보 수정</div> </a>
+        <a href="{% url 'todos-delete' list.pk %}?next={{ request.get_full_path|urlencode }}"> <div class="btn btn-danger ml-auto">일정 삭제</div> </a>
+			</div>
+			
+		</div>
+  </div>
+</div>

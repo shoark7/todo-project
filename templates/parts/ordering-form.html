@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-lg-6 col-mid-5 col-sm-4 col-2"></div>
+	<form class="text-right" id="ordering-form" action="{% url 'todos-list' %}" method="GET">
+		<label for="criteria">기준: </label>
+		<select name="criteria">
+				<option {% if criteria == 'created_date' %}selected{% endif %} value="created_date">생성 날짜</option>
+				<option {% if criteria == 'expired_date' %}selected{% endif %} value="expired_date">마감 기한</option>
+				<option {% if criteria == 'importance' %}selected{% endif %} value="importance">중요도</option>
+		</select>
+	
+		<label for="ordering">순서: </label>
+		<select name="ordering">
+				<option {% if ordering == 'ascending' %}selected{% endif %} value="ascending">오름차순</option>
+				<option {% if ordering == 'descending' %}selected{% endif %} value="descending">내림차순</option>
+		</select>
+	<input class="btn-warning" type="submit" value="검색">
+	</form>
+</div>
