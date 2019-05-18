@@ -32,7 +32,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-
 ROOT_URLCONF = 'todo_configs.urls'
 
 WSGI_APPLICATION = 'todo_configs.wsgi.application'

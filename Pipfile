@@ -1,12 +1,22 @@
 [[source]]
-name = "pypi"
-url = "https://pypi.org/simple"
+
+url = "https://pypi.python.org/simple"
 verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+django = "*"
+python-decouple = "*"
+sqlparse = "*"
+gunicorn = "*"
+psycopg2 = "*"
+whitenoise = "*"
 
 [dev-packages]
 
-[packages]
-whitenoise = "*"
 
 [requires]
+
 python_version = "3.7"
