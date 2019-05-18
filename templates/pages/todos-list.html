@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% comment %}
+This template uses a variable named 'list' referring to a single todo list 
+{% endcomment %}
+
+{% block content %}
+  <div class="container">
+		{% include 'parts/ordering-form.html' %}
+		<hr>
+
+  	{% if not all_clear %}
+			<div class="row justify-content-center">
+			 <div class="col-lg-8 col-mid-8 col-sm-10 alert alert-danger alert-dismissible fade show">
+				 <strong>마감기한이 지난 Todo가 있습니다. 해결해주세요.</strong>
+				 <button type="button" class="close" data-dismiss="alert">&times;</button>
+			 </div>   
+		  </div>
+		{% endif %}
+
+    {% for list in lists %}
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-mid-8 col-sm-10">
+        {% include 'parts/todo-item.html' %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <a href="{% url 'todos-new' %}">
+    <i id="plus-icon" class="fas fa-plus-circle"></i></div>
+  </a>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+{% endblock %}
