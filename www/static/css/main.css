@@ -1,0 +1,112 @@
+#plus-icon {
+  font-size: 4rem;
+  position: absolute;
+  color: black;
+	bottom: 5%;
+	right: 5%;
+}
+
+
+/* Todo list form configs for CREATE and UPDATE */
+.todo-form {
+	background-color: lightblue;	
+	border-radius: 5px;
+	padding: 1rem;
+}
+.todo-form .row {
+	margin: 1rem;
+}
+.input-label {
+	padding-left: 10px;
+	font-weight: 500;	
+}
+.errorlist {
+  color: red;
+}
+#ordering-form * {
+	margin-left: .5rem;
+	height: 30px;
+	font-weight: 500;
+	border-radius: 3px;
+}
+
+
+/* Todo list general config */
+.todo-item {
+	margin-bottom: 20px;
+}
+div.card-header {
+	padding: 0 0;
+}
+div.card-title {
+	margin: 0;
+	padding: .5rem 0;	
+	cursor: pointer;
+	font-weight: 500;
+}
+div.card-body {
+	white-space: pre-line;
+	width: 100%;
+  padding-top: 0;
+}
+div.card-footer {
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+		display: flex;
+}
+div.card-footer a {
+	flex: 1;
+}
+div.card-footer div {
+	width: 100%;
+}
+
+
+/* Todo list config per solved and expired*/
+div.todo-expired {
+	color: red;
+	background-color: #f2bcc9;
+}
+div.todo-expired .card-title {
+	background-color: #f291ad;
+	color: black;
+}
+div.todo-expired .solve-button {
+	color: pink;
+  background-color: #ef7c98;
+}
+div.todo-expired .solve-button:hover {
+	color: red;
+}
+
+div.todo-solved {
+	background-color: #dff2de;
+	text-decoration: line-through;
+}
+div.todo-solved .card-title {
+	background-color: #aee89b;
+}
+div.todo-solved .solve-button {
+	background-color: #ccedc2;
+  color: white;
+}
+div.todo-solved .solve-button:hover {
+	color: green;
+}
+
+div.todo-not-solved {
+	background-color: #f1f2ed;
+}
+div.todo-not-solved .card-title {
+	background-color: #ecefdc;
+	color: black;
+}
+div.todo-not-solved .solve-button {
+  color: #eee;
+  background-color: #ddd;
+}
+div.todo-not-solved .solve-button:hover {
+	color: black;
+}

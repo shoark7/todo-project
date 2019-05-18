@@ -1,13 +1,15 @@
-from decouple import config
 import os
+from decouple import config
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
+SECRET_KEY = config('SECRET_KEY') if not DEBUG else os.environ['SECRET_KEY']
 
-ALLOWED_HOSTS = ['.herokuapp.com',]
+MAIN_HOST = '127.0.0.1' if DEBUG else '.herokuapp.com'
+
+ALLOWED_HOSTS = [MAIN_HOST,]
 
 INSTALLED_APPS = [
     'django.contrib.admin',

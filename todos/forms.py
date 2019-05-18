@@ -13,12 +13,13 @@ class TodoListForm(forms.ModelForm):
                                    widget=forms.DateInput(attrs={'placeholder': 'YYYY-MM-DD'}),
                                    initial=get_ndays_later)
 
+    class Meta:
+        model = TodoList
+        fields = ['title', 'content', 'importance', 'expired_date',]
+
     def clean_expired_date(self):
         data = self.cleaned_data['expired_date']
         if data < date.today():
             raise forms.ValidationError("마감 기한은 오늘의 날짜보다 작을 수 없습니다")
         return data
 
-    class Meta:
-        model = TodoList
-        fields = ['title', 'content', 'importance', 'expired_date',]

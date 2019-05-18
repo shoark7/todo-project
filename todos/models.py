@@ -2,6 +2,9 @@ from datetime import date
 from django.db import models
 from helpers.helper import get_ndays_later
 
+IMPORTANCE_SIZE = 7
+IMPORTANCE_DEFAULT = 4
+
 
 class TodoList(models.Model):
     title = models.CharField("할 일", max_length=30)
@@ -9,8 +12,8 @@ class TodoList(models.Model):
     importance = models.CharField(
         "중요도",
         max_length=1,
-        choices=tuple((str(n), n) for n in range(1, 7+1)),
-        default='4',
+        choices=tuple((str(n+1), n+1) for n in range(IMPORTANCE_SIZE)),
+        default=str(IMPORTANCE_DEFAULT),
     )
     created_date = models.DateField("생성 날짜", auto_now_add=True)
     expired_date = models.DateField("기한", default=get_ndays_later)
